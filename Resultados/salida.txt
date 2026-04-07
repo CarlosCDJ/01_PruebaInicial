@@ -1,0 +1,13 @@
+=== INICIO DEL ARCHIVO ===
+Generado por el script del proyecto 01_hola_archivos
+Número de líneas: 3
+Número de caracteres: 79
+
+--- CONTENIDO ORIGINAL ---
+Línea 1: prueba
+Línea 2: estamos leyendo archivos
+Línea 3: primer mini proyecto
+--- CONTENIDO EN MAYÚSCULAS ---
+LÍNEA 1: PRUEBA
+LÍNEA 2: ESTAMOS LEYENDO ARCHIVOS
+LÍNEA 3: PRIMER MINI PROYECTO
