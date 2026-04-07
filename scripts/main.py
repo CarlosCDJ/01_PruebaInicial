@@ -1,11 +1,15 @@
 import sqlite3
 from datetime import datetime
+from pathlib import Path
 
-nombre_proyecto = "01_hola_archivos"
+nombre_proyecto = "01_PruebaInicial"
 
-ruta_entrada = r".\01_hola_archivos\entradas\entrada.txt"
-ruta_salida = r".\01_hola_archivos\resultados\salida.txt"
-ruta_bd = r".\01_hola_archivos\data\historial.db"
+carpeta_scripts = Path(__file__).resolve().parent
+carpeta_proyecto = carpeta_scripts.parent
+
+ruta_entrada = carpeta_proyecto / "entradas" / "entrada.txt"
+ruta_salida = carpeta_proyecto / "Resultados" / "salida.txt"
+ruta_bd = carpeta_proyecto / "data" / "historial.db"
 
 with open(ruta_entrada, "r", encoding="utf-8") as f:
     contenido = f.read()
@@ -16,7 +20,7 @@ contenido_mayusculas = contenido.upper()
 
 salida = ""
 salida = salida + "=== INICIO DEL ARCHIVO ===\n"
-salida = salida + "Generado por el script del proyecto 01_hola_archivos\n"
+salida = salida + "Generado por el script del proyecto " + nombre_proyecto + "\n"
 salida = salida + "Número de líneas: " + str(numero_lineas) + "\n"
 salida = salida + "Número de caracteres: " + str(numero_caracteres) + "\n"
 salida = salida + "\n"
@@ -29,7 +33,7 @@ salida = salida + contenido_mayusculas
 with open(ruta_salida, "w", encoding="utf-8") as f:
     f.write(salida)
 
-conexion = sqlite3.connect(ruta_bd)
+conexion = sqlite3.connect(str(ruta_bd))
 cursor = conexion.cursor()
 
 cursor.execute("""
@@ -80,11 +84,11 @@ INSERT INTO ejecuciones (
 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 """, (
     fecha_hora,
-    ruta_entrada,
+    str(ruta_entrada),
     numero_lineas,
     numero_caracteres,
     nombre_proyecto,
-    ruta_salida,
+    str(ruta_salida),
     estado,
     comentario
 ))

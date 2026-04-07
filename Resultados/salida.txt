@@ -1,5 +1,5 @@
 === INICIO DEL ARCHIVO ===
-Generado por el script del proyecto 01_hola_archivos
+Generado por el script del proyecto 01_PruebaInicial
 Número de líneas: 3
 Número de caracteres: 79
 
